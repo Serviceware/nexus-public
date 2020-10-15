@@ -110,6 +110,8 @@ public class S3BlobStore
 
   public static final String FORCE_PATH_STYLE_KEY = "forcepathstyle";
 
+  public static final String USE_EXPECT_CONTINUE_KEY = "useExpectContinue";
+
   public static final String ENCRYPTION_TYPE = "encryption_type";
 
   public static final String ENCRYPTION_KEY = "encryption_key";

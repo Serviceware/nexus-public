@@ -37,15 +37,20 @@ public class S3BlobStoreApiAdvancedBucketConnection
   @ApiModelProperty("Setting this flag will result in path-style access being used for all requests.")
   private final Boolean forcePathStyle;
 
+  @ApiModelProperty("Setting this flag will add the expect continue header")
+  private final Boolean useExpectContinue;
+
   @JsonCreator
   public S3BlobStoreApiAdvancedBucketConnection(
       @JsonProperty("endpoint") final String endpoint,
       @JsonProperty("signerType") final String signerType,
-      @JsonProperty("forcePathStyle") final Boolean forcePathStyle)
+      @JsonProperty("forcePathStyle") final Boolean forcePathStyle,
+      @JsonProperty("useExpectContinue") final Boolean useExpectContinue)
   {
     this.endpoint = endpoint;
     this.signerType = signerType;
     this.forcePathStyle = forcePathStyle;
+    this.useExpectContinue = useExpectContinue;
   }
 
   public String getEndpoint() {
@@ -58,5 +63,9 @@ public class S3BlobStoreApiAdvancedBucketConnection
 
   public Boolean getForcePathStyle() {
     return forcePathStyle;
+  }
+
+  public Boolean getUseExpectContinue() {
+    return useExpectContinue;
   }
 }

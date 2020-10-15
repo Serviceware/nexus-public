@@ -64,6 +64,8 @@ class S3BlobStoreApiModelMapperTest
 
   private static final boolean FORCE_PATH_STYLE = true
 
+  private static final boolean USE_EXPECT_CONTINUE = true
+
   private static final String QUOTA_TYPE = 'spaceRemainingQuota'
 
   private static final int QUOTA_LIMIT = 2
@@ -141,7 +143,8 @@ class S3BlobStoreApiModelMapperTest
     new S3BlobStoreApiAdvancedBucketConnection(
         S3_ENDPOINT_URL,
         S3_SIGNER_TYPE,
-        FORCE_PATH_STYLE
+        FORCE_PATH_STYLE,
+        USE_EXPECT_CONTINUE
     )
   }
 

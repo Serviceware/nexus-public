@@ -109,6 +109,7 @@ public final class S3BlobStoreApiModelMapper
       setAttribute(s3BucketAttributes, ENDPOINT_KEY, advancedBucketConnection.getEndpoint());
       setAttribute(s3BucketAttributes, SIGNERTYPE_KEY, advancedBucketConnection.getSignerType());
       setForcePathStyleIfTrue(advancedBucketConnection.getForcePathStyle(), s3BucketAttributes);
+      setUseExpectContinueIfTrue(advancedBucketConnection.getUseExpectContinue(), s3BucketAttributes);
     }
   }
 
@@ -118,6 +119,15 @@ public final class S3BlobStoreApiModelMapper
   {
     if (nonNull(forcePathStyle) && forcePathStyle) {
       setAttribute(s3BucketAttributes, FORCE_PATH_STYLE_KEY, Boolean.TRUE.toString());
+    }
+  }
+
+  private static void setUseExpectContinueIfTrue(
+          final Boolean useExpectContinue,
+          final NestedAttributesMap s3BucketAttributes)
+  {
+    if (nonNull(useExpectContinue) && useExpectContinue) {
+      setAttribute(s3BucketAttributes, USE_EXPECT_CONTINUE_KEY, Boolean.TRUE.toString());
     }
   }
 

@@ -51,7 +51,9 @@ Ext.define('NX.s3blobstore.app.PluginStrings', {
     S3Blobstore_AdvancedConnectionSettings_SignatureVersion_FieldLabel: 'Signature Version',
     S3Blobstore_AdvancedConnectionSettings_SignatureVersion_HelpText: 'An API signature version which may be required for third party object stores using the S3 API',
     S3Blobstore_AdvancedConnectionSettings_PathStyleAccess_FieldLabel: 'Use path-style access',
-    S3Blobstore_AdvancedConnectionSettings_PathStyleAccess_HelpText: 'Setting this flag will result in path-style access being used for all requests'
+    S3Blobstore_AdvancedConnectionSettings_PathStyleAccess_HelpText: 'Setting this flag will result in path-style access being used for all requests',
+    S3Blobstore_AdvancedConnectionSettings_UseExpectContinue_FieldLabel: 'Use expect continue header',
+    S3Blobstore_AdvancedConnectionSettings_UseExpectContinue_HelpText: 'Setting this flag will add the expect continue header'
   }
 
 }, function(obj) {

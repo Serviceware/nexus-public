@@ -115,8 +115,9 @@ public final class S3BlobStoreApiConfigurationMapper
     final String endpoint = getValue(attributes, ENDPOINT_KEY);
     final String signerType = getValue(attributes, SIGNERTYPE_KEY);
     final String forcePathStyle = getValue(attributes, FORCE_PATH_STYLE_KEY);
-    if (nonNull(endpoint) || nonNull(signerType) || nonNull(forcePathStyle)) {
-      return new S3BlobStoreApiAdvancedBucketConnection(endpoint, signerType, Boolean.valueOf(forcePathStyle));
+    final String useExpectContinue = getValue(attributes, USE_EXPECT_CONTINUE_KEY);
+    if (nonNull(endpoint) || nonNull(signerType) || nonNull(forcePathStyle) || nonNull(useExpectContinue)) {
+      return new S3BlobStoreApiAdvancedBucketConnection(endpoint, signerType, Boolean.valueOf(forcePathStyle), Boolean.valueOf(useExpectContinue));
     }
     return null;
   }

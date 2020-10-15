@@ -46,6 +46,7 @@ import static org.sonatype.nexus.blobstore.s3.internal.S3BlobStore.REGION_KEY;
 import static org.sonatype.nexus.blobstore.s3.internal.S3BlobStore.SECRET_ACCESS_KEY_KEY;
 import static org.sonatype.nexus.blobstore.s3.internal.S3BlobStore.SESSION_TOKEN_KEY;
 import static org.sonatype.nexus.blobstore.s3.internal.S3BlobStore.SIGNERTYPE_KEY;
+import static org.sonatype.nexus.blobstore.s3.internal.S3BlobStore.USE_EXPECT_CONTINUE_KEY;
 
 /**
  * Creates configured AmazonS3 clients.
@@ -81,6 +82,7 @@ public class AmazonS3Factory
     String region = blobStoreConfiguration.attributes(CONFIG_KEY).get(REGION_KEY, String.class);
     String signerType = blobStoreConfiguration.attributes(CONFIG_KEY).get(SIGNERTYPE_KEY, String.class);
     String forcePathStyle = blobStoreConfiguration.attributes(CONFIG_KEY).get(FORCE_PATH_STYLE_KEY, String.class);
+    String useExpectContinue = blobStoreConfiguration.attributes(CONFIG_KEY).get(USE_EXPECT_CONTINUE_KEY, String.class);
 
     AWSCredentialsProvider credentialsProvider = null;
     if (!isNullOrEmpty(accessKeyId) && !isNullOrEmpty(secretAccessKey)) {
@@ -103,6 +105,7 @@ public class AmazonS3Factory
     }
 
     ClientConfiguration clientConfiguration = PredefinedClientConfigurations.defaultConfig();
+    clientConfiguration.setUseExpectContinue(Boolean.parseBoolean(useExpectContinue));
     if (connectionPoolSize > 0) {
       clientConfiguration.setMaxConnections(connectionPoolSize);
     }

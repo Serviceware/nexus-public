@@ -60,6 +60,8 @@ class S3BlobStoreApiConfigurationMapperTest
 
   private static final boolean FORCE_PATH_STYLE = true
 
+  private static final boolean USE_EXPECT_CONTINUE = true
+
   private static final int BUCKET_EXPIRATION = 5
 
   private static final int QUOTA_LIMIT = 2
@@ -150,6 +152,7 @@ class S3BlobStoreApiConfigurationMapperTest
     bucketAttributes.set(ENDPOINT_KEY, S3_ENDPOINT_URL)
     bucketAttributes.set(SIGNERTYPE_KEY, S3_SIGNER_TYPE)
     bucketAttributes.set(FORCE_PATH_STYLE_KEY, FORCE_PATH_STYLE)
+    bucketAttributes.set(USE_EXPECT_CONTINUE_KEY, USE_EXPECT_CONTINUE)
   }
 
   private static void assertSoftQuota(final BlobStoreApiSoftQuota softQuota) {
@@ -186,5 +189,6 @@ class S3BlobStoreApiConfigurationMapperTest
     assert advancedBucketConnection.endpoint == S3_ENDPOINT_URL
     assert advancedBucketConnection.signerType == S3_SIGNER_TYPE
     assert advancedBucketConnection.forcePathStyle == FORCE_PATH_STYLE
+    assert advancedBucketConnection.useExpectContinue == USE_EXPECT_CONTINUE
   }
 }

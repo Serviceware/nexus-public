@@ -229,6 +229,12 @@ Ext.define('NX.s3blobstore.view.BlobstoreSettings', {
           name: 'property_forcepathstyle',
           fieldLabel: NX.I18n.get('S3Blobstore_AdvancedConnectionSettings_PathStyleAccess_FieldLabel'),
           helpText: NX.I18n.get('S3Blobstore_AdvancedConnectionSettings_PathStyleAccess_HelpText')
+        },
+        {
+          xtype: 'checkbox',
+          name: 'property_useexpectcontinue',
+          fieldLabel: NX.I18n.get('S3Blobstore_AdvancedConnectionSettings_UseExpectContinue_FieldLabel'),
+          helpText: NX.I18n.get('S3Blobstore_AdvancedConnectionSettings_UseExpectContinue_HelpText')
         }
       ]
     }
